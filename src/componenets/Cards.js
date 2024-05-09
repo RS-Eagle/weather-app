@@ -32,7 +32,7 @@ const Cards = (props) => {
     };
 
     axios
-      .get("http://api.weatherapi.com/v1/current.json", { params })
+      .get("https://api.weatherapi.com/v1/current.json", { params })
       .then((response) => {
         setlocationName(response.data.location.name);
         settemp(response.data.current.temp_c);
