@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState, useRef } from "react";
 function App() {
+
+  
   const [numberr, setnumber] = useState([
     "Kangra",
     "Nurpur,himachal",
@@ -12,9 +14,19 @@ function App() {
   ]);
 
   const inputRef = useRef();
+  const addKeydown = (e)=>{
+    
+
+    if(e.key === "Enter"){
+      inputRef.current.blur()
+
+      changeHandler()
+    }
+  }
+  
   const changeHandler = (e) => {
-    const newValue = inputRef.current.value;
-    console.log(newValue);
+    let newValue = inputRef.current.value;
+    newValue+= " india"
 
     setnumber([newValue]);
   };
@@ -24,7 +36,7 @@ function App() {
       <div className="navbar">
         <h2>Eagle-Weather</h2>
         <div className="input-field">
-          <input type="text" ref={inputRef} placeholder="Enter Location" />
+          <input type="text" ref={inputRef} placeholder="Enter Location" onKeyDown={addKeydown}/>
           <FontAwesomeIcon
             onClick={changeHandler}
             className="icon"

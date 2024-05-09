@@ -22,6 +22,7 @@ const Cards = (props) => {
   const [hum, sethum] = useState("");
   const [bol, setbol] = useState(false);
   const [bol2, setbol2] = useState(true);
+  const [region, setRegion] = useState("");
 
   useEffect(() => {
     setbol(false);
@@ -32,19 +33,21 @@ const Cards = (props) => {
     };
 
     axios
-      .get("http://api.weatherapi.com/v1/current.json", { params })
+      .get("https://api.weatherapi.com/v1/current.json", { params })
       .then((response) => {
+        // console.log(response)
         setlocationName(response.data.location.name);
         settemp(response.data.current.temp_c);
         setdesc(response.data.current.condition.text);
         seticon(response.data.current.condition.icon);
         setwind(response.data.current.wind_mph);
         sethum(response.data.current.humidity);
+        setRegion(response.data.location.region);
         setbol(true);
       })
       .catch((error) => {
         console.log(error);
-        seterror(error.response.data.error.message);
+        seterror(error);
 
         setbol(true);
         setbol2(false);
@@ -56,6 +59,7 @@ const Cards = (props) => {
         bol2 ? (
           <div className="main-weather">
             <div className="location">{locationName}</div>
+            <span>{region}</span>
 
             <img src={icon} alt="" />
             <div className="temprature">
