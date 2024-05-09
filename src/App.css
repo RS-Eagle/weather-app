@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,68 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url(./img/clouds.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+
+}
+
+.navbar {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  flex-wrap: wrap;
+  
+}
+.navbar > *{
+  flex-basis: 100%;
+  box-sizing: border-box;
+
+ 
+}
+
+.links > span {
+  margin: 0 10px;
+}
+
+.main-data {
+  margin-top: 4%;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.input-field {
+  width: 182px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-field > input {
+  background-color: transparent;
+  border: none;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-align: center;
+  outline: none;
+  color: white;
+  height: 50px;
+  margin-right: 8px;
+}
+
+.input-field > input::placeholder {
+  color: white;
+}
+
+.icon {
+  cursor: pointer;
 }
